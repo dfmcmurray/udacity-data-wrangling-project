@@ -12,7 +12,7 @@ After a quick audit, I came up with an initial data model for the OSM data. Fiel
 
 #####Problem Characters
 
-Any key with any “problem characters”, defined by this regular expression `[=\+/&<>;\'"\?%#$@\,\. \t\r\n]`, will be removed.
+Any key with any “problem characters”, defined by this regular expression ```[=\+/&<>;\'"\?%#$@\,\. \t\r\n]```, will be removed.
 
 #####address
 	
@@ -31,16 +31,19 @@ The `is_in` property is generated in the same what the `address` object is.
 #####phone
 
 The phone number data comes in a variety of formats. To clean them up, phone numbers will be stripped of non-numeric characters and broken up into their three sections, the area code, the three digit part, and the four digit part, or, by their more appropriately technical names, npa, nxx, and xxx respectively (https://en.wikipedia.org/wiki/North_American_Numbering_Plan#Numbering_system).
+```
 	-Ex.
 		“phone”: {
 		    “npa”: “213”,
 		    “nxx”: “555”,
 		    “xxxx”: “5555”
 		}
+```
 
 #####open_hours
 
 The open hours data will be converted into a dict with keys being days of week and values being arrays of 2-element tuples, where the first element is an opening time and the second element is a closing time.
+```
 	-Ex.
 		“open_hours”: {
 		    “Monday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
@@ -51,6 +54,7 @@ The open hours data will be converted into a dict with keys being days of week a
 		    “Saturday”: [(“9:00”, “22:00”)]
 		    “Sunday”: [(“9:00”, “22:00”)]
 		}
+```
 
 
 ####Difficulties with the Data
@@ -62,29 +66,35 @@ In the data model above I decided to replace all street name abbreviations with 
 #####Open Hours
 
 Unfortunately, I ended up abandoning the above data model for `open_hours` and leaving the data unchanged. This model proved to be too difficult to encode due to the wide range of formats for this field (a real testament to the difficulty of using human entered data).  I even tried using a natural language time parser (parsedatetime), but it wasn’t able to consistently get the correct times. Here are some examples of the data:
+```
 		-24/7
 		-07:00-22:00
 		-May 15-Nov 16
 		-Mo-Fr 7:00-21:00; Sa-Su 7:00-21:00
 		-Monday:  Closed Tues-Sat: 11:00AM-2:00PM;5:00-8:00PM Sunday :   11:00AM-2:00PM
-
+```
 
 ####Exploring the Data
 
 #####Total Elements
 
+```
 Total Number of Nodes:		5247813
 Total Number of Ways:		562383
 Total Number of All Documents:	5810196
+```
 
 #####Unique Users
 
+```
 Unique Users in Nodes:		2628
 Unique Users in Ways:		1975
 Unique Users in All Documents:	2871
+```
 
 #####Top Controbutors
 
+```
 Top 10 Contributors in Nodes:
 woodpeck_fixbot               546730    (10.42%)
 The Temecula Mapper           452435    (8.62%)
@@ -120,9 +130,11 @@ SJFriedl                      155085    (2.67%)
 Jon Schleuss                  142883    (2.46%)
 jerjozwik                     140555    (2.42%)
 mattmaxon                     121211    (2.09%)
+```
 
 #####Top Amenities
 
+```
 Top 10 Amenity Types:
 Place Of Worship              3788      
 School                        3123      
@@ -134,10 +146,11 @@ Fountain                      493
 Parking                       490       
 Toilets                       483       
 Drinking Water                458    
-
+```
 
 #####Top Cuisines
 
+```
 Top 15 Cuisines:
 American                      155       
 Mexican                       145       
@@ -154,9 +167,11 @@ Steak House                   17
 Indian                        16        
 Asian                         15        
 Regional                      15        
+```
 
 #####Top Restaurants
 
+```
 Top 20 Restaurants:
 Denny's                       23        (American, Diner)
 Subway                        17        (Sandwich)
@@ -178,6 +193,7 @@ Carrows                       5         (American)
 Olive Garden                  5         (Italian)
 Chili's                       4         ()
 BJ's                          4         (American)
+```
 
 ####Concusion and Other Ideas
 
