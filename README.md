@@ -1,14 +1,16 @@
 ##OSM Data Cleanup Project Notes
 
-####The Data
+####Submission Details
 
-Downloaded OSM Data from https://mapzen.com/data/metro-extracts for a large area surrounding the Los Angeles metro area, including my current town of residence, Pasadena. The bounding box for the map data I used is the largest blue square that’s lined up with the screen shot. The size of the data file that I worked with was 1.21 GB. For the project submission, I included every 150th top-level node, bringing the data file down to 8.2 MB.
-
-<img src="los-angeles_california.png">
+1. This README is my project writup.
+2. Project 6 solutions can be found in [Udacity Data Wrangling Lesson 6.ipynb](https://github.com/dfmcmurray/udacity-data-wrangling-project/blob/master/Udacity%20Data%20Wrangling%20Lesson%206.ipynb)
+3. See [The Map Data writeup](https://github.com/dfmcmurray/udacity-data-wrangling-project/blob/master/THE_MAP_DATA.md)
+4. 
+5. 
 
 ####Data Model
 
-After a quick audit, I came up with an initial data model for the OSM data. Fields to clean
+After a quick audit, I came up with an initial data model for the OSM data. The following ways are how I planned to clean the OSM data.
 
 #####Problem Characters
 
