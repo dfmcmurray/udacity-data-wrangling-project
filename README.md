@@ -17,12 +17,14 @@ Any key with any “problem characters”, defined by this regular expression ``
 #####address
 	
 Anything starting with "addr:” will be converted to an `address` object. Also, convert street abbreviations to full type (e.g., “Blvd” to “Boulevard”).
-	-Ex: 
-		"address": {
-		    "housenumber": 5158,
-		    "street": "North Lincoln Avenue”,
-		    ...
-		}
+```
+-Ex: 
+	"address": {
+	    "housenumber": 5158,
+	    "street": "North Lincoln Avenue”,
+	    ...
+	}
+```
 
 #####is_in
 
@@ -32,28 +34,28 @@ The `is_in` property is generated in the same what the `address` object is.
 
 The phone number data comes in a variety of formats. To clean them up, phone numbers will be stripped of non-numeric characters and broken up into their three sections, the area code, the three digit part, and the four digit part, or, by their more appropriately technical names, npa, nxx, and xxx respectively (https://en.wikipedia.org/wiki/North_American_Numbering_Plan#Numbering_system).
 ```
-	-Ex.
-		“phone”: {
-		    “npa”: “213”,
-		    “nxx”: “555”,
-		    “xxxx”: “5555”
-		}
+-Ex.
+	“phone”: {
+	    “npa”: “213”,
+	    “nxx”: “555”,
+	    “xxxx”: “5555”
+	}
 ```
 
 #####open_hours
 
 The open hours data will be converted into a dict with keys being days of week and values being arrays of 2-element tuples, where the first element is an opening time and the second element is a closing time.
 ```
-	-Ex.
-		“open_hours”: {
-		    “Monday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
-		    “Tuesday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
-		    “Wednesday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
-		    “Thursday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
-		    “Friday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
-		    “Saturday”: [(“9:00”, “22:00”)]
-		    “Sunday”: [(“9:00”, “22:00”)]
-		}
+-Ex.
+	“open_hours”: {
+	    “Monday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
+	    “Tuesday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
+	    “Wednesday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
+	    “Thursday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
+	    “Friday”: [(“9:00”, “14:00”), (“17:00”, “22:00”)]
+	    “Saturday”: [(“9:00”, “22:00”)]
+	    “Sunday”: [(“9:00”, “22:00”)]
+	}
 ```
 
 
@@ -67,11 +69,11 @@ In the data model above I decided to replace all street name abbreviations with 
 
 Unfortunately, I ended up abandoning the above data model for `open_hours` and leaving the data unchanged. This model proved to be too difficult to encode due to the wide range of formats for this field (a real testament to the difficulty of using human entered data).  I even tried using a natural language time parser (parsedatetime), but it wasn’t able to consistently get the correct times. Here are some examples of the data:
 ```
-		-24/7
-		-07:00-22:00
-		-May 15-Nov 16
-		-Mo-Fr 7:00-21:00; Sa-Su 7:00-21:00
-		-Monday:  Closed Tues-Sat: 11:00AM-2:00PM;5:00-8:00PM Sunday :   11:00AM-2:00PM
+-24/7
+-07:00-22:00
+-May 15-Nov 16
+-Mo-Fr 7:00-21:00; Sa-Su 7:00-21:00
+-Monday:  Closed Tues-Sat: 11:00AM-2:00PM;5:00-8:00PM Sunday :   11:00AM-2:00PM
 ```
 
 ####Exploring the Data
