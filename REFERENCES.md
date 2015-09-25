@@ -1,1 +1,0 @@
-For the Udacity Data Wrangling in MongoDB project, the only resources I used were the Udacity course, official library documentation for the libraries imported at the top of my code, and the occassional stack overflow question to find bugs in my code.
