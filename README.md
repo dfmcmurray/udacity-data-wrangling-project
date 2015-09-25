@@ -4,9 +4,9 @@
 
 1. This README is my project writup.
 2. Project 6 solutions can be found in [Udacity Data Wrangling Lesson 6.ipynb](https://github.com/dfmcmurray/udacity-data-wrangling-project/blob/master/Udacity%20Data%20Wrangling%20Lesson%206.ipynb)
-3. See [The Map Data writeup](https://github.com/dfmcmurray/udacity-data-wrangling-project/blob/master/THE_MAP_DATA.md)
-4. 
-5. 
+3. See [The Map Data writeup](https://github.com/dfmcmurray/udacity-data-wrangling-project/blob/master/THE_MAP_DATA.md) for more info on what OSM data I used and why I chose it.
+4. A thinned version of the data I used is located in this repository, [here](https://github.com/dfmcmurray/udacity-data-wrangling-project/blob/master/los-angeles_california_thinned.osm).
+5. My references can also be found in this repository, [here](https://github.com/dfmcmurray/udacity-data-wrangling-project/blob/master/REFERENCES.md).
 
 ####Data Model
 
